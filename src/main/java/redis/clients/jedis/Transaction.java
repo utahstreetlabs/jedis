@@ -408,6 +408,11 @@ public class Transaction extends BinaryTransaction {
         return getResponse(BuilderFactory.LONG);
     }
 
+    public Response<Long> zadd(String key, final Map<Double, String> scoreMembers) {
+        client.zadd(key, scoreMembers);
+        return getResponse(BuilderFactory.LONG);
+    }
+
     public Response<Long> zcard(String key) {
         client.zcard(key);
         return getResponse(BuilderFactory.LONG);
