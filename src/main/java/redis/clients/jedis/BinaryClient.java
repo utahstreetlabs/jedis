@@ -393,6 +393,10 @@ public class BinaryClient extends Connection {
 	sendCommand(ZADD, argsArray);
     }
 
+    public void zadd(final byte[] key, final byte[]... members) {
+	sendCommand(ZADD, joinParameters(key, members));
+    }
+
     public void zrange(final byte[] key, final long start, final long end) {
 	sendCommand(ZRANGE, key, toByteArray(start), toByteArray(end));
     }

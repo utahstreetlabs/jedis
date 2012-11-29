@@ -319,6 +319,10 @@ public class Client extends BinaryClient implements Commands {
 	zadd(SafeEncoder.encode(key), score, SafeEncoder.encode(member));
     }
 
+    public void zadd(final String key, final String... members) {
+	zadd(SafeEncoder.encode(key), SafeEncoder.encodeMany(members));
+    }
+
     public void zrange(final String key, final long start, final long end) {
 	zrange(SafeEncoder.encode(key), start, end);
     }

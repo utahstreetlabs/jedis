@@ -1445,6 +1445,12 @@ public class Jedis extends BinaryJedis implements JedisCommands {
 	return client.getIntegerReply();
     }
 
+    public Long zadd(final String key, final String... members) {
+	checkIsInMulti();
+	client.zadd(key, members);
+	return client.getIntegerReply();
+    }
+
     public Set<String> zrange(final String key, final long start, final long end) {
 	checkIsInMulti();
 	client.zrange(key, start, end);
